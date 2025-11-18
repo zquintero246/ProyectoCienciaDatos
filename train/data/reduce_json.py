@@ -19,7 +19,7 @@ def convert_decimals(obj):
         return obj
 
 
-print("🔍 Leyendo JSON gigante en streaming con ijson.items() ...")
+print("Leyendo JSON gigante en streaming con ijson.items() ...")
 result = {}
 
 with open(INPUT_JSON, "rb") as f:
@@ -41,9 +41,9 @@ with open(INPUT_JSON, "rb") as f:
         result[signer_name] = reduced
 
 
-print("💾 Guardando JSON reducido...")
+print("Guardando JSON reducido...")
 with open(OUTPUT_JSON, "w") as out:
     json.dump(result, out)
 
-print("\n✅ Proceso completado.")
-print("📁 Archivo generado:", OUTPUT_JSON)
+print("\nProceso completado.")
+print("Archivo generado:", OUTPUT_JSON)
