@@ -258,10 +258,6 @@ if run_camera:
                 frame_display = frame.copy()
                 cv2.putText(frame_display, f"Prediccion: {st.session_state.last_pred}",
                             (30, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
-                cv2.putText(frame_display, f"Aceptadas: {' '.join(accepted_words)}",
-                            (30, 90), cv2.FONT_HERSHEY_SIMPLEX, 0.8, (255, 255, 0), 2)
-                cv2.putText(frame_display, f"Traduccion: {translated_text}",
-                            (30, 130), cv2.FONT_HERSHEY_SIMPLEX, 0.8, (0, 200, 255), 2)
 
                 FRAME_WINDOW.image(cv2.cvtColor(frame_display, cv2.COLOR_BGR2RGB))
 
