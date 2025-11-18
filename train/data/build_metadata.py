@@ -1,8 +1,8 @@
 import os, csv
 import numpy as np
 
-DATA_DIR = "data/dataset_cordialidad"
-OUT_CSV = "data/metadata.csv"
+DATA_DIR = "dataset_cordialidad"
+OUT_CSV = "metadata.csv"
 
 rows = []
 labels = sorted(os.listdir(DATA_DIR))

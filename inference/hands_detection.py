@@ -9,7 +9,7 @@ import torch
 
 from train.model import BiLSTMClassifier
 
-CKPT_PATH = "modelo_cordialidad.pth"
+CKPT_PATH = "models/best.pth"
 
 ckpt = torch.load(CKPT_PATH, map_location="cpu")
 label_map = ckpt["label_map"]
