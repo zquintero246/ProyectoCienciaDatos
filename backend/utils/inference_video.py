@@ -2,6 +2,8 @@ import cv2
 import mediapipe as mp
 from mediapipe.tasks import python
 from mediapipe.tasks.python import vision
+from mediapipe.framework.formats import landmark_pb2
+
 import numpy as np
 import torch
 
@@ -61,6 +63,20 @@ def predict_from_window(seq):
         pred = logits.argmax(1).item()
         return id2label[pred]
 
+def draw_pose_landmarks(image, landmarks):
+    proto = landmark_pb2.NormalizedLandmarkList()
+    for lm in landmarks:
+        proto.landmark.add(
+            x=lm.x,
+            y=lm.y,
+            z=lm.z
+        )
+    mp.solutions.drawing_utils.draw_landmarks(
+        image,
+        proto,
+        mp.solutions.pose.POSE_CONNECTIONS
+    )
+
 
 # ======================
 #   MEDIAPIPE INIT
@@ -87,7 +103,7 @@ mp_image_format = mp.ImageFormat.SRGB
 # ======================
 #      TEST VIDEO
 # ======================
-VIDEO_PATH = r"C:\Users\Zabdiel Julian\Downloads\Proyectos\ProyectoCienciaDatos\train\data\videos\Videos Courtesy\1\Cordialidad\Chao\0.avi"
+VIDEO_PATH = r"C:\Users\Zabdiel Julian\Downloads\Proyectos\ProyectoCienciaDatos\train\data\videos\Videos Courtesy\21\Cordialidad\Invitar\0.avi"
 
 cap = cv2.VideoCapture(VIDEO_PATH)
 if not cap.isOpened():
@@ -153,6 +169,9 @@ with vision.HandLandmarker.create_from_options(hand_options) as hand_det, \
         cv2.putText(frame, last_pred, (40, 60),
                     cv2.FONT_HERSHEY_SIMPLEX, 1.3,
                     (0, 255, 0), 3)
+
+        if current_pose is not None:
+            draw_pose_landmarks(frame, current_pose)
 
         cv2.imshow("Test Modelo — Video", frame)
         if cv2.waitKey(1) & 0xFF == 27:
