@@ -117,5 +117,5 @@ test_loss, test_acc = eval_epoch(test_loader)
 print(f"Test Loss: {test_loss:.4f} | Test Acc: {test_acc:.4f}")
 
 # save final simple model for inference
-torch.save({"model_state": model.state_dict(), "label_map": train_ds.label2id}, os.path.join(OUT_DIR, "final_model.pth"))
-print("Saved final_model.pth")
+torch.save({"model_state": model.state_dict(), "label_map": train_ds.label2id}, os.path.join(OUT_DIR, "modelo_cordialidad.pth"))
+print("Saved modelo_cordialidad.pth")

@@ -33,7 +33,7 @@ def main(args):
 
 if __name__ == "__main__":
     p = argparse.ArgumentParser()
-    p.add_argument("--ckpt", required=True, help="path to best.pth or final_model.pth")
+    p.add_argument("--ckpt", required=True, help="path to best.pth or modelo_cordialidad.pth")
     p.add_argument("--npy", required=True, help="path to sequence .npy")
     p.add_argument("--device", default="cuda" if torch.cuda.is_available() else "cpu")
     args = p.parse_args()
