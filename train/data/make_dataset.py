@@ -2,8 +2,8 @@ import os
 import json
 import numpy as np
 
-JSON_PATH = "/home/user/ProyectoCienciaDatos/train/data/datos_reducido.json"
-OUTPUT_DIR = "/home/user/ProyectoCienciaDatos/train/data/dataset_cordialidad"
+JSON_PATH = r"/train/data/datos_reducido.json"
+OUTPUT_DIR = r"C:\Users\Zabdiel Julian\Downloads\Proyectos\ProyectoCienciaDatos\train\dataset"
 CATEGORY = "Cordialidad"
 
 os.makedirs(OUTPUT_DIR, exist_ok=True)
