@@ -29,7 +29,7 @@ with open(INPUT_JSON, "rb") as f:
         if CATEGORY not in signer_obj:
             continue
 
-        print(f"✔ Guardando {signer_name}/{CATEGORY}")
+        print(f"Guardando {signer_name}/{CATEGORY}")
 
         # Filtrar solo Cordialidad
         reduced = {CATEGORY: signer_obj[CATEGORY]}
